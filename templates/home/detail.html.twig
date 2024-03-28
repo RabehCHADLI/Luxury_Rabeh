@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details
+{% endblock %}
+
+{% block body %}
+
+	<div
+		class="base">
+
+		<!-- Page -->
+		<div class="page">
+			<pre>
+    {{ dump(jobOffer) }}
+</pre>
+			<!-- Page Header-->
+			<section class="page-title page-title-bg fixed-bg overlay dark-5 padding-top-160 padding-bottom-80">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h2 class="white-text">{{ jobOffer.getJobTitle}}</h2>
+							<span class="white-text">{{ jobOffer.getReference}}</span>
+
+							<ol class="breadcrumb">
+								<li>
+									<div class="portfolio-nav">
+										<a href="#!" class="waves-effect waves-dark">
+											<i class="fa fa-angle-left" aria-hidden="true"></i>
+											Prev</a>
+										<a href="#!" class="waves-effect waves-dark">
+											<i class="fa fa-th-large" aria-hidden="true"></i>
+										</a>
+										<a href="#!" class="waves-effect waves-dark">Next
+											<i class="fa fa-angle-right" aria-hidden="true"></i>
+										</a>
+									</div>
+								</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Page Content-->
+			<section class="single-project-section section-padding light-gray-bg">
+				<div class="container">
+					<div class="project-overview">
+						<div class="row mb-80">
+							<div class="col-xs-12 col-md-8">
+								<p class="ref grey-text no-margin">Ref. 1007</p>
+								<h2>{{ jobOffer.getJobTitle}}</h2>
+								<p>{{ jobOffer.getDescription()}}</p>
+
+							</div>
+
+							<div class="col-xs-12 col-md-4 quick-overview">
+								<ul class="portfolio-meta">
+									<li>
+										<span>
+											Pulished at
+										</span>
+										{{jobOffer.createdAt|date("m/d/Y")}}</li>
+
+									<li>
+										<span>
+											Position
+										</span>2nd Engineer</li>
+									<li>
+										<span>
+											Contract Type
+										</span>Full Time</li>
+									<li>
+										<span>
+											Salary
+										</span>45k &euro;</li>
+									<li>
+										<span>
+											Location
+										</span>Paris</li>
+									<li>
+										<span>
+											Starting date
+										</span>2018-05-18</li>
+								</ul>
+								<form action="{{path('app_apply')}}" method="POST">
+									<input type="hidden" name="jobid" value="{{ jobOffer.id }}"/>
+									<button class="btn btn-md primary waves-effect waves-light">
+										Apply for this job
+									</button>
+								</form>
+								<div class="btn btn-block btn-success mt-30 waves-effect waves-light disabled">You have applied for this job</div>
+							</div>
+						</div>
+					</div>
+
+					<nav class="single-post-navigation no-margin" role="navigation">
+						<div class="row">
+
+							<div class="col-xs-6 col-sm-6 col-md-4">
+								<div class="previous-post-link">
+									<a class="btn border primary waves-effect waves-dark" href="#!">
+										<i class="fa fa-long-arrow-left"></i>Previous
+									</a>
+								</div>
+							</div>
+							<div class="hidden-xs hidden-sm col-md-4"></div>
+
+
+							<div class="col-xs-6 col-sm-6 col-md-4">
+								<div class="next-post-link">
+									<a class="btn border primary waves-effect waves-dark" href="#!">
+										Next
+										<i class="fa fa-long-arrow-right"></i>
+									</a>
+								</div>
+							</div>
+
+						</div>
+					</nav>
+				</div>
+			</section>
+
+		</div>
+
+	</div>
+{% endblock %}
